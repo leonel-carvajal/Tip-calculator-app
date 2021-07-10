@@ -10,8 +10,15 @@ const ErrorPeople = document.querySelector('.people__error')
 const Total = document.querySelector('.total__value')
 const Amount = document.querySelector('.amount__value')
 const ImgDark = document.querySelector('.header__img')
+const Modal = document.querySelector('.modal')
+const ModalContent = document.querySelector('.modal--content')
+const Theme =localStorage.getItem('darkMode')
+
 let tip = 0
-let darkMode = null
+let darkMode = ''
+
+
+
 Form.addEventListener('click',(e)=>{
   e.preventDefault()
 });
@@ -37,8 +44,11 @@ const CalculateTotalBill = ()=>{
     let TotalByPerson = bill /numberOfpeople
     Amount.textContent = `${TipByPerson.toFixed(2)}$`
     Total.textContent = `${TotalByPerson.toFixed(2)}$`
+  }else{
+    Modal.classList.add('modal--show')
   }
 }
+
 const ResetBill = ()=>{
   TipValues.forEach(item=>item.classList.remove('add-tip'))
   inputBill.value = 0
@@ -49,31 +59,30 @@ const ResetBill = ()=>{
 }
 
 const DarkMode = ()=>{
-    localStorage.setItem('darkMode',true)
-    darkMode = true
     ImgDark.setAttribute('src','images/sun.svg')
+    ImgDark.dataset.mode = 'dark'
     document.documentElement.style.setProperty('--Light-grayish-cyan','rgb(13, 11, 19)')
     document.documentElement.style.setProperty('--Dark-grayish-cyan','#fff')
     Form.classList.add('dark--form')
     document.querySelectorAll('.input').forEach(item=>item.classList.add('dark'))
 }
 const RemoveDarkMode = ()=>{
-  localStorage.setItem('darkMode',false)
-  darkMode=false
   ImgDark.setAttribute('src','images/moon.svg')
+  ImgDark.dataset.mode = 'light'
   document.documentElement.style.setProperty('--Light-grayish-cyan','hsl(189, 41%, 97%)')
   document.documentElement.style.setProperty('--Dark-grayish-cyan','hsl(186, 14%, 43%)')
   Form.classList.remove('dark--form')
   document.querySelectorAll('.input').forEach(item=>item.classList.remove('dark'))
 }
 ImgDark.addEventListener('click',()=>{
-  if(darkMode){
+  if(ImgDark.dataset.mode==='dark'){
+    localStorage.setItem('darkMode','light')
     RemoveDarkMode()
   }else{
+    localStorage.setItem('darkMode','dark')
     DarkMode()
   }
 })
-
 TipValues.forEach(tip=>{
   tip.addEventListener('click',ActiveTip)
   
@@ -123,9 +132,14 @@ Reset.addEventListener('click',ResetBill)
 
 
 window.addEventListener('DOMContentLoaded',()=>{
-  if(localStorage.getItem('darkMode')===true){
-    RemoveDarkMode()
-  }else{
+  const value = localStorage.getItem('darkMode')
+  if(value==='dark'){
     DarkMode()
+  }else if(value==='light'){
+    RemoveDarkMode()
   }
+})
+
+Modal.children[0].children[2].addEventListener('click',()=>{
+  Modal.classList.remove('modal--show')
 })
