@@ -4,8 +4,11 @@ const CustomTip = document.querySelector('.input--tip')
 const inputBill = document.querySelector('.input--bill')
 const inputTip = document.querySelector('.input--tip')
 const Calculate = document.querySelector('.button--submit')
+const Reset = document.querySelector('.button--reset')
 const NumberOfPeople = document.querySelector('.input--people')
 const ErrorPeople = document.querySelector('.people__error')
+const Total = document.querySelector('.total__value')
+const Amount = document.querySelector('.amount__value')
 let tip = 0
 
 Form.addEventListener('click',(e)=>{
@@ -30,6 +33,16 @@ TipValues.forEach(tip=>{
 })
 CustomTip.addEventListener('click',()=>{
   TipValues.forEach(item=>item.classList.remove('add-tip'))
+})
+CustomTip.addEventListener('change',(e)=>{
+  const valor = TransformToNumber(e.target.value)
+  if(valor<=0){
+    e.target.focus()
+    CustomTip.classList.add('error')
+  }else{
+    e.target.blur()
+    CustomTip.classList.remove('error')
+  }
 })
 
 inputBill.addEventListener('change',(e)=>{
@@ -58,9 +71,23 @@ NumberOfPeople.addEventListener('change',(e)=>{
   }
 })
 Calculate.addEventListener('click',()=>{
-  const bill = TransformToNumber(inputBill.value)
-  const numberOfpeople = TransformToNumber(NumberOfPeople.value)
-  
+    const bill = TransformToNumber(inputBill.value)
+    const numberOfpeople = TransformToNumber(NumberOfPeople.value)
+    if(bill>0 && numberOfpeople >0 && tip >0){
+      let SubTip = bill * tip /100
+      let TipByPerson = SubTip/numberOfpeople
+      let TotalByPerson = bill /numberOfpeople
+      Amount.textContent = `${TipByPerson.toFixed(2)}$`
+      Total.textContent = `${TotalByPerson.toFixed(2)}$`
+    }
+})
+Reset.addEventListener('click',()=>{
+  TipValues.forEach(item=>item.classList.remove('add-tip'))
+  inputBill.value = 0
+  inputTip.value = 0
+  NumberOfPeople.value = 0
+  Amount.textContent = `00.0$`
+  Total.textContent = `00.0$`
 })
 
 
