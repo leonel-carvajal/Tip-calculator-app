@@ -12,6 +12,11 @@ body{
   font-family: 'Space Mono', monospace;
   background-color: var(--Light-grayish-cyan);
 }
+@media screen and (min-width:1024px) {
+  body{
+    overflow-y: hidden;
+  }
+}
 .main{
   padding-bottom: 5em;
 }
@@ -31,11 +36,24 @@ body{
   margin-right: auto;
   margin-top: 25px;
 }
+@media screen and (min-width:1024px) {
+  .calculator{
+    width: 70%;
+  }
+}
 .form{
   background-color: var(--White);
   padding: 0.8em;
   border-radius: 10px;
   box-shadow:  2px 3px 7px rgb(0 0 0 /0.25);
+}
+@media screen and (min-width:1024px) {
+  .form{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    padding: 2em;
+  }
 }
 .form__inputs,
 .peoples{
@@ -43,6 +61,27 @@ body{
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+}
+.peoples{
+  position: relative;
+}
+.people__error{
+  position: absolute;
+  top:5px;
+  right: 0;
+  color: #ff6347;
+  font-size: 0.8rem;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+@media screen and (min-width:1024px) {
+  .people__error{
+    font-size: 1.2rem;
+  }
+}
+.show-error{
+  opacity: 1;
 }
 .bill__label,
 .tip__label,
@@ -67,6 +106,12 @@ body{
   background-color:var(--Light-grayish-cyan);
   background-image: url('../images/icon-dollar.svg');
 }
+@media screen and (min-width:1024px) {
+  .input--bill:hover{
+    cursor: pointer;
+    border: 2px solid var(--Strong-cyan);
+  }
+}
 .tip{
   margin-bottom: 25px;
 }
@@ -75,6 +120,12 @@ body{
   grid-template-columns: repeat(2,1fr);
   grid-template-rows: repeat(3,1fr);
   gap: 10px;
+}
+@media screen and (min-width:1024px) {
+  .tip__grid{
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+  }
 }
 .tip__value{
   width:120px;
@@ -88,11 +139,26 @@ body{
   width: 120px;
   background-color: var(--Light-grayish-cyan);
 }
-
+@media screen and (min-width:1024px) {
+  .input--tip:hover{
+    cursor: pointer;
+    border:2px solid var(--Strong-cyan)
+  }
+  .tip__value:hover{
+    cursor: pointer;
+    background-color: var(--Strong-cyan);
+  }
+}
+.add-tip{
+  background-color: var(--Strong-cyan);
+}
 .input--people{
   background-color: var(--Light-grayish-cyan);
   background-image: url('../images/icon-person.svg');
   background-repeat: no-repeat;
+}
+.error{
+  border: 2px solid hsl(9, 100%, 64%);
 }
 .estimate{
   margin-top: 25px;
@@ -141,6 +207,11 @@ body{
   font-weight: 700;
   font-size: 1.2rem;
   box-shadow:  2px 3px 7px rgb(0 0 0 /0.45);
+}
+@media screen and (min-width:1024px) {
+  .button{
+    cursor: pointer;
+  }
 }
 .button--reset{
   background-color: var(--Strong-cyan);
