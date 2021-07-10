@@ -5,11 +5,10 @@
 ## Welcome! 👋
 
 Thanks for checking out this front-end coding challenge.
-[Site-live](https://leonel-carvajal.github.io/Tip-calculator-app/)
 [Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
 
 **To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
-
+[Site-live](https://leonel-carvajal.github.io/Tip-calculator-app/)
 ## The challenge
 
 Your challenge is to build out this tip calculator app and get it looking as close to the design as possible.
