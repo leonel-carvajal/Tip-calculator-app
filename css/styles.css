@@ -12,6 +12,9 @@ body{
   font-family: 'Space Mono', monospace;
   background-color: var(--Light-grayish-cyan);
 }
+.main{
+  padding-bottom: 5em;
+}
 .title{
   color: var(--Dark-grayish-cyan);
   text-align: center;
@@ -34,7 +37,8 @@ body{
   border-radius: 10px;
   box-shadow:  2px 3px 7px rgb(0 0 0 /0.25);
 }
-.form__inputs{
+.form__inputs,
+.peoples{
   height: 75px;
   display: flex;
   justify-content: space-around;
@@ -84,7 +88,63 @@ body{
   width: 120px;
   background-color: var(--Light-grayish-cyan);
 }
-.people{
+
+.input--people{
+  background-color: var(--Light-grayish-cyan);
+  background-image: url('../images/icon-person.svg');
+  background-repeat: no-repeat;
+}
+.estimate{
+  margin-top: 25px;
+  padding-bottom: 1em;
+  border-radius: 7px;
+  background-color: var(--Very-dark-cyan);
+}
+.amount,
+.total{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.amount__title,
+.total__title{
   display: flex;
   flex-direction: column;
+}
+.amount__value,
+.total__value{
+  color: var(--Strong-cyan);
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+.amount__label:first-child,
+.total__label:first-child{
+  font-weight: 700;
+  color: var(--White);
+}
+.amount__label:last-child,
+.total__label:last-child{
+  color: var(--Dark-grayish-cyan-2);
+  font-weight: 700;
+}
+.button{
+  display: block;
+  width: 90%;
+  padding: 0.6em;
+  outline: none;
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  border-radius: 7px;
+  color: var(--Very-dark-cyan);
+  font-weight: 700;
+  font-size: 1.2rem;
+  box-shadow:  2px 3px 7px rgb(0 0 0 /0.45);
+}
+.button--reset{
+  background-color: var(--Strong-cyan);
+}
+.button--calculate{
+  background-color: white;
 }
