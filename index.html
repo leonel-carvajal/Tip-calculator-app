@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="Icono.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Frontend Mentor | Tip calculator app</title>
+</head>
+<body>
+<main class="main">
+  <h1 class="title"><span class="title--gray">Split</span><span class="title--gray">Tter</span></h1>
+  <section class="calculator">
+    <form action="#" class="form">
+      <section class="form__values">
+        <div class="form__inputs">
+          <label for="bill" class="bill__label">Bill</label>
+          <input type="text" name="bill" id="bill" class="input input--bill">
+        </div>
+        <div class="tip">
+          <p class="tip__label">Select tip %</p>
+         <div class="tip__grid">
+          <div class="tip__value">5%</div>
+          <div class="tip__value">10%</div>
+          <div class="tip__value">15%</div>
+          <div class="tip__value">25%</div>
+          <div class="tip__value">50%</div>
+          <input type="number" min="0" placeholder="Custom" class="input input--tip">
+         </div>
+        </div>
+        <div class="peoples">
+          <label for="people" class="label__people">Number of people</label>
+          <input type="number" name="people" id="people" min="1" class="input__people">
+        </div>
+      </section>
+      <section class="estimate">
+        <div class="amount">
+          <p class="amount__title">
+            <span class="amount__label">Tip Amount</span>
+            <span class="amount__label">/person</span>
+          </p>
+          <p class="amount__value">0.00$</p>
+        </div>
+        <div class="total">
+          <p class="total__title">
+            <span class="total__label">Total</span>
+            <span class="total__label">/person</span>
+          </p>
+          <p class="total__value">0.00$</p>
+        </div>
+        <button type="reset" class="button button--reset">Reset</button>
+        <button type="submit" class="button button--submit">Calculate</button>
+      </section>
+    </form>
+  </section>
+</main>
+
+
+  
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+</body>
+</html>
