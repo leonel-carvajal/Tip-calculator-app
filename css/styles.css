@@ -3,7 +3,7 @@
 --Very-dark-cyan: hsl(183, 100%, 15%);
 --Dark-grayish-cyan: hsl(186, 14%, 43%);
 --Dark-grayish-cyan-2: hsl(184, 14%, 56%);
---Light-grayish-cyan: hsl(185, 41%, 84%);
+--Light-grayish-cyan-2: hsl(185, 41%, 84%);
 --Light-grayish-cyan: hsl(189, 41%, 97%);
 --White: hsl(0, 0%, 100%);
 }
@@ -11,6 +11,7 @@ body{
   font-size: 18px;
   font-family: 'Space Mono', monospace;
   background-color: var(--Light-grayish-cyan);
+  transition: background-color 0.3s;
 }
 @media screen and (min-width:1024px) {
   body{
@@ -19,6 +20,23 @@ body{
 }
 .main{
   padding-bottom: 5em;
+}
+.header{
+  position: relative;
+  height: 50px;
+  text-align: right;
+}
+.header__img{
+  position: absolute;
+  width: 25px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media screen  and (min-width:1024px){
+  .header__img{
+    cursor: pointer;
+  }
 }
 .title{
   color: var(--Dark-grayish-cyan);
@@ -46,6 +64,7 @@ body{
   padding: 0.8em;
   border-radius: 10px;
   box-shadow:  2px 3px 7px rgb(0 0 0 /0.25);
+  transition: background-color 0.3s;
 }
 @media screen and (min-width:1024px) {
   .form{
@@ -101,6 +120,14 @@ body{
   font-weight: 700;
   font-size: 1.2rem;
   text-align: right;
+}
+.dark{
+  color: var(--White);
+  border: 1px solid;
+}
+.dark--form{
+  background-color: rgb(13, 11, 19);
+  border: 1px solid #fff;
 }
 .input--bill{
   background-color:var(--Light-grayish-cyan);
