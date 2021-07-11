@@ -51,9 +51,9 @@ const CalculateTotalBill = ()=>{
 
 const ResetBill = ()=>{
   TipValues.forEach(item=>item.classList.remove('add-tip'))
-  inputBill.value = 0
-  inputTip.value = 0
-  NumberOfPeople.value = 0
+  inputBill.value = '' 
+  inputTip.value = '' 
+  NumberOfPeople.value = '' 
   Amount.textContent = `00.0$`
   Total.textContent = `00.0$`
 }
